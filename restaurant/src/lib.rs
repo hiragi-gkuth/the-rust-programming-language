@@ -1,18 +1,21 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        super::eat_at_restaurant();
-        assert_eq!(2 + 2, 4);
-    }
-}
-
+mod back_of_house;
 mod front_of_house;
 
-pub use crate::front_of_house::hosting;
+pub use front_of_house::hosting;
+pub use back_of_house::Appetizer;
 
-pub fn eat_at_restaurant() {
+pub fn eat_at_rastaurant() {
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    let mut meal = back_of_house::Breakfast::summer("Rye");
+
+    meal.toast = String::from("Wheat");
+    println!("I'd like {} toast please", meal.toast);
+    
+    // meal.seasonal_fruit = String::from("blueberries");
+
+    let order1 = Appetizer::Soup;
+    let order2 = Appetizer::Salad;
 }

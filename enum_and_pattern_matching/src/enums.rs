@@ -1,3 +1,5 @@
+pub mod use_of_enum;
+
 #[derive(Debug)]
 enum IpAddr {
     V4(u8, u8, u8, u8),

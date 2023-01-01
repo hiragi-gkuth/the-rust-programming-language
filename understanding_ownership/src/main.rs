@@ -1,4 +1,7 @@
 fn main() {
+    string_type_and_string_literal();
+
+    other_type_slice();
     
 }
 
@@ -13,16 +16,21 @@ fn other_type_slice() {
 fn string_type_and_string_literal() {
     let my_string = String::from("hello world");
 
-    let word = first_word(&my_string[0..6]);
-    let word = first_word(&my_string[..]);
-    let word = first_word(&my_string);
+    let mut word = first_word(&my_string[0..6]);
+    println!("{:#?}", word.as_ptr());
+    word = first_word(&my_string[..]);
+    println!("{:#?}", word.as_ptr());
+    word = first_word(&my_string[5..]);
+    println!("{:#?}", word.as_ptr());
 
     let my_string_literal = "hello world";
 
-    let word = first_word(&my_string_literal[0..6]);
-    let word = first_word(&my_string_literal[..]);
-
-    let word = first_word(my_string_literal);
+    word = first_word(&my_string_literal[0..6]);
+    println!("{:#?}", word.as_ptr());
+    word = first_word(&my_string_literal[..]);
+    println!("{:#?}", word.as_ptr());
+    word = first_word(&my_string_literal[8..]);
+    println!("{:#?}", word.as_ptr());
 }
 
 fn first_word(s: &str) -> &str {
